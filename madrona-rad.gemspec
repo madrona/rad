@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{madrona-rad}
-  s.version = "0.4.3"
+  s.version = "0.4.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["JD Barnhart", "Greg Borenstein"]
-  s.date = %q{2009-10-28}
+  s.date = %q{2011-07-4}
   s.default_executable = %q{rad}
   s.description = %q{Ruby Arduino Development: a framework for programming the Arduino physcial computing platform using Ruby}
   s.email = %q{jd@jdbarnhart.com}
@@ -129,6 +129,7 @@ Gem::Specification.new do |s|
      "lib/rad/darwin_installer.rb",
      "lib/rad/generators/makefile/makefile.erb",
      "lib/rad/generators/makefile/makefile.rb",
+     "lib/rad/generators/makefile/better_makefile.erb",
      "lib/rad/hardware_library.rb",
      "lib/rad/init.rb",
      "lib/rad/linux_installer.rb",

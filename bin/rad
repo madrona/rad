@@ -24,11 +24,13 @@ class OptionParser #:nodoc:
     
     options = {"hardware" => {
                 "serial_port"      => '/dev/tty.usbserial*', 
-                "mcu"              => "atmega168", 
+                "mcu"              => "diecimila", 
                 "physical_reset"   => false
                 },
                 "software" => {
-                  "arduino_root"   => "/Applications/arduino-0015"
+                  "arduino_root"   => "/Applications/arduino-0015",
+                  "experimental" => false,
+                  "arduino_version" => 22
                  }
                }
     
@@ -299,12 +301,29 @@ else
 # atmega328 => Arduino Duemilanove w/ ATmega328
 # mega => Arduino Mega
 
+# and if you are running in experimental mode:
+# uno => Arduino Uno
+
 "
     file << options["hardware"].to_yaml
   end
   puts "Added #{sketch_name}/config/hardware.yml"
   
   File.open("#{sketch_name}/config/software.yml", 'w') do |file|
+    file << "##############################################################
+# What's this experimental stuff?
+# baby steps working towards support for the latest boards 
+# like duo using arduino version 22
+#
+# Are there drawbacks?
+# Yes, we haven't ported over the
+# rad libraries, so only bare-bones sketches work and it
+# has only been tested on OS X
+#
+# How do I use it?
+# flip experimental to true and make sure you have the latest arduino installed (22)
+
+"
     file << options["software"].to_yaml
   end
   puts "Added #{sketch_name}/config/software.yml"

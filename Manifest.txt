@@ -106,6 +106,7 @@ lib/rad/arduino_sketch.rb
 lib/rad/darwin_installer.rb
 lib/rad/generators/makefile/makefile.erb
 lib/rad/generators/makefile/makefile.rb
+lib/rad/generators/makefile/better_makefile.erb
 lib/rad/hardware_library.rb
 lib/rad/init.rb
 lib/rad/linux_installer.rb

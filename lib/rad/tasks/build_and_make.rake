@@ -37,6 +37,18 @@ namespace :test do
 
 end
 
+namespace :arduino do
+  
+  desc "list all supported boards in the current arduino version (currently hardwired for OS X to get this up and running)"
+  task :boards do 
+    File.open("/Applications/Arduino.app/Contents/Resources/Java/hardware/arduino/boards.txt", "r") do |f1|
+      while line = f1.gets  
+        puts line  
+      end  
+    end
+  end
+
+end
 
 namespace :make do
   
@@ -73,7 +85,7 @@ namespace :make do
   
   task :clean_sketch_dir => ["build:file_list", "build:sketch_dir"] do
     FileList.new(Dir.entries("#{@sketch.build_dir}")).exclude("#{@sketch.name}.cpp").exclude(/^\./).each do |f|
-      sh %{rm #{@sketch.build_dir}/#{f}}
+      sh %{rm -rf #{@sketch.build_dir}/#{f}}
     end
   end
   
